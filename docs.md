@@ -1,3 +1,21 @@
+# Backend:
+Routes:
+localhost:/4000/
+- **post** /auth/signup: name, email, password
+- **post** /auth/login: email, password
+- **post** /auth/logout
+- **get** /users/
+- **get** /users/:id
+- **post** /listings/createListing: title, description
+- **get:** /listings/
+- **get:** /listings/:id
+- **post:** /loans/getLoan: listingId
+- **delete:** /loans/returnLoan: listingId
+- **get:** /listings/search?q= : http://localhost:4000/listings/search?q=Tom
+
+# Frontend:
+
+
 ## Resources: 
 - https://www.typescriptlang.org/docs/
 - https://www.prisma.io/

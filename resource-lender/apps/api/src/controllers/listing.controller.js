@@ -41,3 +41,17 @@ export async function fetchSpecificListing(req, res){
     message: "Listing found"
   })
 }
+
+export async function searchListings(req, res){
+  const query = req.query.q;
+  const listings = await prisma.listing.findMany({
+    where : {
+      title: {
+        contains: query
+      } 
+    }
+  });
+  return res.status(200).json({
+    data: listings
+  });
+}
