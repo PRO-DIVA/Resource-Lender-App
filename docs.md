@@ -16,6 +16,7 @@
 - https://coding-boot-camp.github.io/full-stack/postgresql/postgresql-installation-guide 
 - https://nodejs.org/en/learn/getting-started/how-much-javascript-do-you-need-to-know-to-use-nodejs
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring
+- https://www.prisma.io/docs/getting-started/setup-prisma/start-from-scratch/relational-databases-typescript-prismaPostgres
 <br>
 
 ### Typescript in Experimental phase with Nodejs Modules:
@@ -70,3 +71,9 @@
 ## Nodemon
 - https://www.npmjs.com/package/nodemon
 - **Note**: ```npm start``` is using ```node``` and ```npm dev``` is using ```nodemon```
+
+## Prisma + Express + Sqlite/Postgres
+- https://www.youtube.com/watch?v=qrdQHkwCzbY
+- https://www.youtube.com/watch?v=GReoWKUnwAg
+- https://stackoverflow.com/questions/75413361/can-i-use-npx-with-pnpm
+

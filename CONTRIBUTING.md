@@ -108,4 +108,7 @@ Or run both using `docker-compose` (if you want to build images/containers):
 docker-compose up --build
 ```
 
+- **Note**: Why npx prisma generate
+> `This tells prisma generate to build the JavaScript/TypeScript client. Without running this command, your import { PrismaClient } from '@prisma/client' would not work because the client code wouldn't exist in your node_modules.`
+
 
