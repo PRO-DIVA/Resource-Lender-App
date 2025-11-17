@@ -13,11 +13,7 @@ model User {
   name      String?
   password  String?
   createdAt DateTime @default(now())
-
-  // Named relation for listings owned by the user
   listings  Listing[] @relation("UserListings")
-
-  // Named relation for loans borrowed by the user
   loans     Loan[]    @relation("UserLoans")
 }
 
@@ -25,26 +21,27 @@ model Listing {
   id          Int      @id @default(autoincrement())
   title       String
   description String?
+  category    String?
   ownerId     Int
-
-  // Connects to User.listings via the "UserListings" relation
+  isAvailable Boolean  @default(true)
   owner       User     @relation("UserListings", fields: [ownerId], references: [id])
   createdAt   DateTime @default(now())
-
-  // This is the missing field that caused your error
   loans       Loan[]
 }
 
 model Loan {
-  id         Int      @id @default(autoincrement())
-  listingId  Int
-  borrowerId Int
-  status     String   @default("pending")
-  createdAt  DateTime @default(now())
-
-  // This relation automatically connects to Listing.loans
-  listing    Listing  @relation(fields: [listingId], references: [id])
-
-  // Connects to User.loans via the "UserLoans" relation
-  borrower   User     @relation("UserLoans", fields: [borrowerId], references: [id])
+  id           Int      @id @default(autoincrement())
+  listingId    Int
+  borrowerId   Int
+  status       String   @default("pending")
+  requestDate  DateTime @default(now())
+  approvedAt   DateTime?
+  rejectedAt   DateTime?
+  borrowDate   DateTime?
+  dueDate      DateTime?
+  returnedAt   DateTime?
+  fineAmount   Float?
+  createdAt    DateTime @default(now())
+  listing      Listing  @relation(fields: [listingId], references: [id])
+  borrower     User     @relation("UserLoans", fields: [borrowerId], references: [id])
 }
